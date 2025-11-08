@@ -5,15 +5,15 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OrdinalEncoder
 import tensorflow as tf
 import pickle
 
-model = tf.keras.models.load_model('churn_project/model.h5')
+model = tf.keras.models.load_model('model.h5')
 ##load the encoder and scaler
-with open('churn_project/label_encoder_geo.pkl', 'rb') as file:
+with open('label_encoder_geo.pkl', 'rb') as file:
     label_encode_geo_dict = pickle.load(file)
 
-with open('churn_project/label_encoder_gender.pkl', 'rb') as file:
+with open('label_encoder_gender.pkl', 'rb') as file:
     label_encode_gender_dict = pickle.load(file)
 
-with open('churn_project/scaler.pkl', 'rb') as file:
+with open('scaler.pkl', 'rb') as file:
     scaler_dict = pickle.load(file)
 
 ## streamlit app
@@ -64,3 +64,4 @@ if predict > 0.5:
     st.write('the customer is likely to churn.')
 else:
     st.write('the customer is likely to not churn.')
+
